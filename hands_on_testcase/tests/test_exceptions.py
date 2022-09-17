@@ -9,3 +9,4 @@ def test_exception():
     with pytest.raises(ZeroDivisionError) as m:
         f()
     assert True == m
+
