@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'model_queries',
     'hands_on_testcase',
+    'django_features',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
