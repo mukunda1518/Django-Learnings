@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'model_queries',
     'hands_on_testcase',
     'django_features',
-    'rest_framework',
+    'iam',
+        'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -103,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+AUTH_USER_MODEL = 'iam.CustomUser'
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
