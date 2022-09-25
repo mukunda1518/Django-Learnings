@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class SupplierConfig(AppConfig):
+class TodoDrfConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'iam'
+    name = 'todo_drf'
