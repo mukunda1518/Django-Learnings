@@ -19,6 +19,6 @@ from iam_employee import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('todo/', include('todo_drf.urls')),
+    path('api/', include('todo_drf.urls')),
     path('employees/', views.EmployeeList.as_view())
 ]

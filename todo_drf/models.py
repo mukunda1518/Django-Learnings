@@ -9,3 +9,12 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+    age = models.IntegerField(default=10)
+
+    def __str__(self):
+        return self.name
+
