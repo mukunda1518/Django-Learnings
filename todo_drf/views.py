@@ -4,9 +4,11 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 from .models import Task, Student
-from .serializers import TaskSerializer, StudentSerializer
+from .serializers import TaskSerializer, StudentSerializer, MyTokenObtainPairSerializer
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
 
 @api_view(["GET"])
@@ -61,7 +63,14 @@ def taskDelete(request, pk):
     return Response("Item Successfully deleted")
 
 
+class MyTokenObtainPairView(TokenObtainPairView):
+    permission_classes = (AllowAny,)
+    serializer_class = MyTokenObtainPairSerializer
+
+
 class StudentList(APIView):
+
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, pk=None):
         students = Student.objects.all()
