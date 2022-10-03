@@ -23,3 +23,17 @@ def create_product(sender, instance, **kwargs):
 def check_product_description(sender, instance, **kwargs):
     if not instance.description:
         instance.description = "This is Default Description"
+
+# Writing Custom Fields
+
+
+class HandField(models.Field):
+
+    def __init__(self, *args, **kwargs):
+        kwargs['max_length'] = 104
+        super().__init__(*args, **kwargs)
+
+    def deconstruct(self):
+        name, path, args, kwargs = super().deconstruct()
+        del kwargs["max_length"]
+        return name, path, args, kwargs

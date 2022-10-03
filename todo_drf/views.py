@@ -9,6 +9,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from .models import Task, Student
 from .serializers import TaskSerializer, StudentSerializer, MyTokenObtainPairSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from django.views.decorators.cache import cache_page
 
 
 @api_view(["GET"])
@@ -24,6 +25,7 @@ def apiOverview(request):
 
 
 @api_view(["GET"])
+@cache_page(60 * 15)
 def taskList(request):
     tasks = Task.objects.all()
     serializer = TaskSerializer(tasks, many=True)
